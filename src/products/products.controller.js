@@ -25,7 +25,14 @@ function list(req, res, next) {
     .catch(next);
 }
 
+async function listPriceSummary(req, res, next) {
+  const data = await productsService.listPriceSummary() 
+  res.json({ data });
+}
+
+
 module.exports = {
   read: [productExists, read],
   list,
+  listPriceSummary,
 };
